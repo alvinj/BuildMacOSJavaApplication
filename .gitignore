@@ -1,0 +1,17 @@
+release/
+.cache
+.cache-main
+.classpath
+.history
+.project
+.scala_dependencies
+.settings
+.worksheet
+.DS_Store
+*.class
+*.log
+*.iml
+*.ipr
+*.iws
+.idea
+

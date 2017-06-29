@@ -1,0 +1,88 @@
+<project name="MacJavaAppBuilder" default="create-bundle" basedir=".">
+
+<!-- 
+    This Ant build file lets you build a MacOS application from a
+    Java Jar file. The main assumption is that the Jar file has
+    a `main` method that starts your application. The MacOS
+    application will be built under the `release` directory.
+-->
+
+  <!-- ******************************** -->
+  <!-- CHANGE THESE VARIABLES AS NEEDED -->
+  <!-- ******************************** -->
+
+  <property name="jar_filename"      value="hello.jar" />
+
+  <!-- no spaces in `app_name` -->
+  <property name="app_name"          value="HelloWorld" />
+  <property name="app_display_name"  value="Hello World" />
+  <property name="short_version"     value="0.1" />
+  <property name="icon_filename"     value="world.icns" />
+  <property name="copyright_holder"  value="Alvin Alexander" />
+  <property name="app_identifier"    value="hello.HelloWorld" />
+  <property name="main_class_name"   value="hello.HelloWorld" />
+
+  <!-- SEE: https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW8 -->
+  <property name="app_category"      value="public.app-category.utilities" />
+
+
+
+  <!-- **************************************** -->
+  <!-- CHANGE STUFF BELOW HERE AT YOUR OWN RISK -->
+  <!-- **************************************** -->
+
+  <property environment="env" />
+  <property name="release.dir" value="release" />
+
+  <!-- assumes appbundler-1.0.jar is in the current dir -->
+  <taskdef name="bundleapp" classname="com.oracle.appbundler.AppBundlerTask" classpath="appbundler-1.0.jar" />
+
+  <target name="clean">
+      <echo message="clean task ..." />
+      <!-- delete old dirs -->
+      <delete dir="${release.dir}" quiet="true"/>
+      <!-- create new, clean dirs -->
+      <mkdir dir="${release.dir}"/>
+      <!-- remove the old version of the app -->
+      <delete dir="${release.dir}/${app_name}.app" />
+  </target>
+
+  <target name="create-bundle" depends="clean">
+  <bundleapp outputdirectory="${release.dir}"
+      name="${app_name}"
+      displayname="${app_display_name}"
+      identifier="${app_identifier}"
+      shortversion="${short_version}"
+      icon="${icon_filename}"
+      copyright="${copyright_holder}"
+      applicationCategory="${app_category}"
+      mainclassname="${main_class_name}">
+
+      <runtime dir="${env.JAVA_HOME}" />
+
+      <!-- the only jar file needed  -->
+      <classpath file="${jar_filename}" />
+
+      <!-- jvm settings -->
+      <option value="-Xms64m"/>
+      <option value="-Xmx256m"/>
+      <option value="-XX:PermSize=20m"/>
+      <option value="-XX:MaxPermSize=20m"/>
+
+      <!-- "use cms for desktop ui" -->
+      <option value="-XX:+UseConcMarkSweepGC"/>
+      <option value="-XX:ParallelCMSThreads=2"/>
+
+      <!-- option value="-Xdock:icon=../Resources/wiki.icns"></option -->
+      <option value="-Xdock:icon=Contents/Resources/${icon_filename}"/>
+      <option value="-Dapple.laf.useScreenMenuBar=true"/>
+      <option value="-Dcom.apple.macos.use-file-dialog-packages=true"/>
+      <option value="-Dcom.apple.macos.useScreenMenuBar=true"/>
+      <option value="-Dapple.awt.application.name=${app_display_name}"/>
+      <option value="-Dcom.apple.smallTabs=true"/>
+
+    </bundleapp>
+  </target>
+
+</project>
+

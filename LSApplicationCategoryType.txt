@@ -1,0 +1,143 @@
+These are `LSApplicationCategoryType` for building MacOS applications. They belong in the application's *Info.plist* file.
+
+From the URL below, “LSApplicationCategoryType (String - macOS) is a string that contains the UTI corresponding to the app’s type. The App Store uses this string to determine the appropriate categorization for the app. Table 2 lists the supported UTIs for apps.”
+
+- https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW8
+
+
+CATEGORY
+UTI
+
+FOR APPS
+--------
+
+Business
+public.app-category.business
+
+Developer Tools
+public.app-category.developer-tools
+
+Education
+public.app-category.education
+
+Entertainment
+public.app-category.entertainment
+
+Finance
+public.app-category.finance
+
+Games
+public.app-category.games
+
+Graphics & Design
+public.app-category.graphics-design
+
+Healthcare & Fitness
+public.app-category.healthcare-fitness
+
+Lifestyle
+public.app-category.lifestyle
+
+Medical
+public.app-category.medical
+
+Music
+public.app-category.music
+
+News
+public.app-category.news
+
+Photography
+public.app-category.photography
+
+Productivity
+public.app-category.productivity
+
+Reference
+public.app-category.reference
+
+Social Networking
+public.app-category.social-networking
+
+Sports
+public.app-category.sports
+
+Travel
+public.app-category.travel
+
+Utilities
+public.app-category.utilities
+
+Video
+public.app-category.video
+
+Weather
+public.app-category.weather
+
+
+FOR GAMES
+---------
+
+Action Games
+public.app-category.action-games
+
+Adventure Games
+public.app-category.adventure-games
+
+Arcade Games
+public.app-category.arcade-games
+
+Board Games
+public.app-category.board-games
+
+Card Games
+public.app-category.card-games
+
+Casino Games
+public.app-category.casino-games
+
+Dice Games
+public.app-category.dice-games
+
+Educational Games
+public.app-category.educational-games
+
+Family Games
+public.app-category.family-games
+
+Kids Games
+public.app-category.kids-games
+
+Music Games
+public.app-category.music-games
+
+Puzzle Games
+public.app-category.puzzle-games
+
+Racing Games
+public.app-category.racing-games
+
+Role Playing Games
+public.app-category.role-playing-games
+
+Simulation Games
+public.app-category.simulation-games
+
+Sports Games
+public.app-category.sports-games
+
+Strategy Games
+public.app-category.strategy-games
+
+Trivia Games
+public.app-category.trivia-games
+
+Word Games
+public.app-category.word-games
+
+
+
+
+
+
+

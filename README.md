@@ -1,6 +1,6 @@
 # Building a MacOS application from a Java Jar file
 
-This little project contains an Ant build script that can be used to convert
+This project contains an Ant build script that can be used to convert
 a Java application into a MacOS application. It won’t create a “perfect”
 Mac/Java application where you’ll have menu items like Preferences and Quit
 under the application name in the menu bar, but it will at least let you
@@ -77,8 +77,9 @@ documented [here](http://docs.oracle.com/javase/7/docs/technotes/guides/jweb/pac
 
 ## More information
 
-For more information, search my website for more information on 
-building MacOS Java applications with Ant.
+For more information, see this article on my website:
+
+- [How to build a macOS application from a Java Jar file](http://alvinalexander.com/java/how-build-macos-application-from-java-jar-file-jarbundler)
 
 
 Alvin Alexander    
